@@ -2,16 +2,138 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Js-exam-maker</title>
+    <title>Exam maker</title>
+    <link rel="icon" type="image/x-icon" href="img/favicon.gif"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/alpaca.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.tmpl.js"></script>
+    <script src="js/alpaca.js"></script>
+    <script src="js/exam.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/ckeditor/ckeditor.js"></script>
+    <script src="js/jquery.easyModal.js"></script>
+    <style type="text/css">
+        body {
+            background-color: #333333;
+        }
+
+        textarea {
+            display: none;
+        }
+
+        #test-editor {
+            width: 80%;
+            margin: auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        #controls {
+            width: 80%;
+            margin: auto;
+            margin-bottom: 90px;
+            padding: 8px;
+        }
+
+        #controls-body {
+            box-shadow: 0 0 20px white;
+            background-color: #ffffff;
+            margin-right: 10px;
+            margin-left: 10px;
+            padding: 8px;
+        }
+
+        .alpaca-fieldset-array-item-toolbar button {
+            margin-right: 3px;
+        }
+
+        .alpaca-item-container {
+            background-color: #ffffff;
+            box-shadow: 0 0 20px white;
+            margin-bottom: 20px;
+            margin-right: 20px;
+            margin-left: 20px;
+            padding: 8px;
+        }
+
+        .alpaca-item-container:last-child {
+            margin-bottom: 0;
+        }
+
+        .alpaca-fieldset {
+            padding: 0;
+        }
+
+        fieldset {
+            margin: 0 !important;
+            padding: 0 !important;
+            clear: both;
+        }
+
+        .ui-widget-header {
+            float: right;
+        }
+
+        .title {
+            text-align: center;
+        }
+
+        .title h1 {
+            color: white;
+            text-shadow: 1px 1px 2px black, 0 0 1em white;
+        }
+
+        #test-information {
+            display: none;
+        }
+
+        .all-content {
+            display: none;
+        }
+
+        .loading {
+            width: 100px;
+            margin: auto;
+            margin-top: 100px;
+        }
+
+        hr {
+            border-top: 1px solid #918787;
+        }
+    </style>
 </head>
 
 <body>
-Hello world
+<div class="loading">
+    <img src="img/loader.gif" alt="Идет загрузка.." style="max-width: 100px; max-height: 100px;"/>
+</div>
+<div class="all-content">
+    <div class="title"><h1>Редактор тестов</h1></div>
+    <div id="test-editor" class=""></div>
+    <div id="controls" class="">
+        <div id="controls-body" class="">
+            <button id="serialize" class="btn btn-primary">Сохранить</button>
+            <button id="saveAndCheck" class="btn btn-primary">Сохранить и проверить</button>
+
+            <div id="test-information" class="">
+                <hr/>
+                <p>Всего вопросов: <span id="questionCount"></span></p>
+
+                <p>Общее количество баллов: <span id="totalPoints"></span></p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal" class="" style="display: none">
+    <textarea name="" id="modalEditor" cols="30" rows="10"></textarea>
+    <button class="btn btn-default btn-save-modal">Сохранить</button>
+    <button class="btn btn-default btn-close-modal">Закрыть</button>
+</div>
 </body>
 </html>
